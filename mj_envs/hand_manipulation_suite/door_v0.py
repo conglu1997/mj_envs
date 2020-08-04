@@ -12,6 +12,7 @@ class DoorEnvV0(mujoco_env.MujocoEnv, utils.EzPickle):
         self.door_bid = 0
         self.grasp_sid = 0
         self.handle_sid = 0
+        self.reward_type = reward_type
         curr_dir = os.path.dirname(os.path.abspath(__file__))
         mujoco_env.MujocoEnv.__init__(self, curr_dir+'/assets/DAPG_door.xml', 5)
 
@@ -29,8 +30,6 @@ class DoorEnvV0(mujoco_env.MujocoEnv, utils.EzPickle):
         self.grasp_sid = self.model.site_name2id('S_grasp')
         self.handle_sid = self.model.site_name2id('S_handle')
         self.door_bid = self.model.body_name2id('frame')
-
-        self.reward_type = reward_type
 
     def step(self, a):
         a = np.clip(a, -1.0, 1.0)

@@ -14,6 +14,7 @@ class HammerEnvV0(mujoco_env.MujocoEnv, utils.EzPickle):
         self.obj_bid = -1
         self.tool_sid = -1
         self.goal_sid = -1
+        self.reward_type = reward_type
         curr_dir = os.path.dirname(os.path.abspath(__file__))
         mujoco_env.MujocoEnv.__init__(self, curr_dir+'/assets/DAPG_hammer.xml', 5)
         utils.EzPickle.__init__(self)
@@ -31,8 +32,6 @@ class HammerEnvV0(mujoco_env.MujocoEnv, utils.EzPickle):
         self.goal_sid = self.sim.model.site_name2id('nail_goal')
         self.act_mid = np.mean(self.model.actuator_ctrlrange, axis=1)
         self.act_rng = 0.5 * (self.model.actuator_ctrlrange[:, 1] - self.model.actuator_ctrlrange[:, 0])
-
-        self.reward_type = reward_type
 
     def step(self, a):
         a = np.clip(a, -1.0, 1.0)
