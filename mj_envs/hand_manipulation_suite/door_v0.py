@@ -55,7 +55,7 @@ class DoorEnvV0(mujoco_env.MujocoEnv, utils.EzPickle):
             reward = sparse_reward
         elif self.reward_type == "dense":
             # get to handle
-            reward += -0.1 np.linalg.norm(palm_pos-handle_pos)
+            reward += -0.1 * np.linalg.norm(palm_pos-handle_pos)
         elif self.reward_type == "binary":
             reward = goal_achieved - 1
         else:
