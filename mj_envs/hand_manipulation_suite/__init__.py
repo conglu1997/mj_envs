@@ -23,6 +23,14 @@ register(
         reward_type="binary",
     ),
 )
+register(
+    id='door-zero-one-v0',
+    entry_point='mj_envs.hand_manipulation_suite:DoorEnvV0',
+    max_episode_steps=200,
+    kwargs=dict(
+        reward_type="binary_01",
+    ),
+)
 from mj_envs.hand_manipulation_suite.door_v0 import DoorEnvV0
 
 # Hammer a nail into the board
