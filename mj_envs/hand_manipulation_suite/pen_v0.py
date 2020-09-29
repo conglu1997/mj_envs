@@ -80,6 +80,8 @@ class PenEnvV0(mujoco_env.MujocoEnv, utils.EzPickle):
                 reward -= 5
         elif self.reward_type == "binary":
             reward = goal_achieved - 1
+        elif self.reward_type == "binary_01":
+            reward = goal_achieved
         else:
             error
 

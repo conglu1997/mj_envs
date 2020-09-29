@@ -55,6 +55,8 @@ class RelocateEnvV0(mujoco_env.MujocoEnv, utils.EzPickle):
                 reward += -0.5*np.linalg.norm(obj_pos-target_pos)       # make object go to target
         elif self.reward_type == "binary":
             reward = goal_achieved - 1
+        elif self.reward_type == "binary_01":
+            reward = goal_achieved
         else:
             error
 

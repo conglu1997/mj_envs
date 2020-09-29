@@ -55,6 +55,14 @@ register(
         reward_type="binary",
     ),
 )
+register(
+    id='hammer-zero-one-v0',
+    entry_point='mj_envs.hand_manipulation_suite:HammerEnvV0',
+    max_episode_steps=200,
+    kwargs=dict(
+        reward_type="binary_01",
+    ),
+)
 from mj_envs.hand_manipulation_suite.hammer_v0 import HammerEnvV0
 
 # Reposition a pen in hand
@@ -87,6 +95,14 @@ register(
         reward_type="binary",
     ),
 )
+register(
+    id='pen-zero-one-v0',
+    entry_point='mj_envs.hand_manipulation_suite:PenEnvV0',
+    max_episode_steps=100,
+    kwargs=dict(
+        reward_type="binary_01",
+    ),
+)
 from mj_envs.hand_manipulation_suite.pen_v0 import PenEnvV0
 
 # Relcoate an object to the target
@@ -109,6 +125,14 @@ register(
     max_episode_steps=200,
     kwargs=dict(
         reward_type="binary",
+    ),
+)
+register(
+    id='relocate-zero-one-v0',
+    entry_point='mj_envs.hand_manipulation_suite:RelocateEnvV0',
+    max_episode_steps=200,
+    kwargs=dict(
+        reward_type="binary_01",
     ),
 )
 from mj_envs.hand_manipulation_suite.relocate_v0 import RelocateEnvV0
